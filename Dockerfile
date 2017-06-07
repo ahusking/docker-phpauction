@@ -2,8 +2,8 @@ FROM ahusking/ubuntu-base
 
 MAINTAINER Andrew Husking (andrew@husking.id.au)
 RUN apt-get update
-RUN apt-get -y -q install curl apache2 libgd-graph-perl rrdtool dnsutils flow-tools wget vim
-RUN apt-get install -y -q php5-cli php5-common php5-gd php5-mcrypt php5-mysql php5-suhosin php5-xcache
+RUN apt-get -y -q install curl apache2 dnsutils wget vim
+RUN apt-get install -y -q php-cli php-common php-gd php-mcrypt php-mysql php-suhosin php-xcache
 
 COPY source/ /root/
 ENV APACHE_RUN_USER www-data
