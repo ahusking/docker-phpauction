@@ -12,8 +12,8 @@ RUN update-rc.d mysql defaults
 RUN service apache2 restart
 RUN service mysql restart
 
-RUN service mysql start; mysql -uroot -pdefault-e "CREATE USER 'phpauction'@'localhost' IDENTIFIED BY 'magnifire';"
-RUN service mysql start; mysql -uroot -pdefault-e "GRANT ALL ON *.* TO 'phpauction'@'localhost';"
+RUN service mysql start; mysql -uroot -pdefault -e "CREATE USER 'phpauction'@'localhost' IDENTIFIED BY 'magnifire';"
+RUN service mysql start; mysql -uroot -pdefault -e "GRANT ALL ON *.* TO 'phpauction'@'localhost';"
 
 COPY source/ /root/
 RUN tar xvfz /root/phpauction.tgz -C /var/www/html
