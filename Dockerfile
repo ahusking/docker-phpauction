@@ -2,8 +2,8 @@ FROM ahusking/ubuntu-base
 
 MAINTAINER Andrew Husking (andrew@husking.id.au)
 RUN export DEBIAN_FRONTEND=noninteractive
-RUN debconf-set-selections <<< 'mariadb-server-10.0 mysql-server/root_password password default'
-RUN debconf-set-selections <<< 'mariadb-server-10.0 mysql-server/root_password_again password default'
+RUN /bin/bash -c "debconf-set-selections <<< 'mariadb-server-10.0 mysql-server/root_password password default'"
+RUN /bin/bash -c "debconf-set-selections <<< 'mariadb-server-10.0 mysql-server/root_password_again password default'"
 
 RUN apt-get update
 RUN apt-get -y -q install curl apache2 dnsutils wget vim php-cli php-common php-gd php-mcrypt php-mysql mariadb-server
