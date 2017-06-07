@@ -8,7 +8,6 @@ RUN debconf-set-selections <<< 'mariadb-server-10.0 mysql-server/root_password_a
 RUN apt-get update
 RUN apt-get -y -q install curl apache2 dnsutils wget vim mariadb-server php-cli php-common php-gd php-mcrypt php-mysql
 
-
 COPY source/ /root/
 RUN tar xvfz /root/phpauction.tgz -C /var/www/html
 RUN mysql -uroot -pdefault -e "CREATE USER 'phpauction'@'localhost' IDENTIFIED BY 'magnifire'"
